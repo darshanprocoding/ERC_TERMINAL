@@ -68,75 +68,106 @@ body,
 }
 
 /* -------------------------------------------------------------------------- */
-/* Global Smooth Scrolling & Momentum Optimization                          */
+/* Global Smooth Scrolling, Rendering & Hardware Acceleration Engine          */
 /* -------------------------------------------------------------------------- */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   overflow-x: hidden;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  overscroll-behavior-y: none;
 }
 
 *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
 input,
 button,
 select,
 textarea {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 /* -------------------------------------------------------------------------- */
-/* Global Ultra-Smooth Synchronized Theme Transition Engine                   */
+/* High-Performance Scoped Hardware-Accelerated Transition Architecture       */
 /* -------------------------------------------------------------------------- */
-html,
-body,
-#root,
+/* Smooth theme transition for top-level shells and containers only */
+.responsive-command-bg,
 header,
 aside,
 main,
-nav,
-section,
-article,
-div,
-button,
-input,
-select,
-textarea,
-table,
-thead,
-tbody,
-tr,
-th,
-td,
-span,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  transition-property: background-color, border-color, color, box-shadow, text-decoration-color;
-  transition-duration: 250ms !important;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+.theme-surface {
+  transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              color 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: auto;
 }
 
-svg,
-svg path,
-svg circle,
-svg rect,
-svg line,
-svg polyline,
-svg polygon {
-  transition-property: stroke, fill, color, opacity;
-  transition-duration: 250ms !important;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+/* GPU Acceleration utility */
+.gpu-accel {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth Interactive Click & Press Feedback */
+button,
+a,
+input[type="button"],
+input[type="submit"] {
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 150ms ease,
+              border-color 150ms ease,
+              color 150ms ease,
+              box-shadow 150ms ease,
+              opacity 150ms ease;
+}
+
+button:active,
+a:active {
+  transform: scale(0.98);
+}
+
+/* Silky Smooth View Entry Animation */
+.view-enter-animation {
+  animation: viewFadeSlideIn 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes viewFadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Silky Smooth Modal Backdrop and Content */
+.modal-enter {
+  animation: modalFadeIn 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.97) translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* -------------------------------------------------------------------------- */

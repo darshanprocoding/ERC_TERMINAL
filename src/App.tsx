@@ -2042,7 +2042,7 @@ useEffect(() => {
         <main className={`flex-1 overflow-y-auto p-4 sm:p-5 w-full ${
           isDark ? 'scrollbar-thin scrollbar-thumb-slate-800' : 'scrollbar-thin scrollbar-thumb-slate-300'
         }`}>
-          <div className="w-full min-w-0">{renderViewContent()}</div>
+          <div key={currentView} className="w-full min-w-0 view-enter-animation">{renderViewContent()}</div>
         </main>
       </div>
 
